@@ -9,7 +9,7 @@
       font-size: 0.875rem;
   
       &.primary {
-        color: v.$primary;
+        color: v.$gray;
       }
     }
   
@@ -22,28 +22,28 @@
   
       &.primary {
         background-color: v.$white;
-        color: v.$primary;
+        color: v.$gray;
         border: none;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px v.$shadow;
   
         &:focus {
           outline: none;
-          border: 2px solid #63b3ed;
+          border: 2px solid v.$primary;
         }
       }
 
       &.error {
-        border: 1px solid #e53e3e;
-        color: #e53e3e;
+        border: 1px solid v.$error;
+        color: v.$error;
   
         &:focus {
-          border: 1px solid #e53e3e;
+          border: 1px solid v.$error;
         }
       }
   
       &.disabled {
-        background-color: #edf2f7;
-        color: #a0aec0;
+        background-color: v.$disabled-background;
+        color: v.$disabled-color;
         cursor: not-allowed;
         opacity: 0.7;
       }
@@ -53,7 +53,7 @@
       display: block;
       margin-top: 0.25rem;
       font-size: 0.875rem;
-      color: #e53e3e;
+      color: v.$error;
     }
   }
   

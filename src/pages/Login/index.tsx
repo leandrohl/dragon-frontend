@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useForm } from '@hooks/useForm';
 import { Controller } from 'react-hook-form';
 import { z } from 'zod';
@@ -5,11 +7,13 @@ import { LoginSchema } from '@helpers/validations';
 import './styles.scss';
 import Input from '@components/Input';
 import Button from '@components/Button';
+import toast from 'react-hot-toast';
 
 type LoginData = z.infer<typeof LoginSchema>;
 
 function Login() {
-const {
+
+  const {
     control,
     handleSubmit,
     formState: { errors }
@@ -17,6 +21,7 @@ const {
 
   const onSubmit = async (data: LoginData) => {
     console.log(data)
+    toast.success('Login realizado com sucesso');
   }
 
   return (
@@ -24,19 +29,19 @@ const {
       <div className="login-form">
         <h1>Login</h1>
         <div className="form-group">
-         <Controller
+          <Controller
             control={control}
             name='email'
             render={({ field: { value, onChange }}) => (
-                <Input
-                  name='email'
-                  label='Email'
-                  type="text"
-                  variant='primary'
-                  value={value}
-                  onChange={onChange}
-                  errorMessage={errors.email?.message}
-                />
+              <Input
+                name='email'
+                label='Email'
+                type="text"
+                variant='primary'
+                value={value}
+                 onChange={onChange}
+                errorMessage={errors.email?.message}
+              />
             )}
           />
         </div>
@@ -53,17 +58,20 @@ const {
                 value={value}
                 onChange={onChange}
                 errorMessage={errors.password?.message}
+                autocomplete="current-password"
                 // disabled={loading}
               />
             )}
           />
         </div>
-        <Button
-              onClick={handleSubmit(onSubmit)}
-              variant='primary'
-            >
-              Entrar
+        <div className='button-container'>
+          <Button
+            onClick={handleSubmit(onSubmit)}
+            variant='primary'
+          >
+            Entrar
           </Button>
+        </div>
       </div>
     </div>
   );

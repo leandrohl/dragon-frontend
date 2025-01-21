@@ -11,9 +11,10 @@ interface InputProps {
   variant?: 'primary' | 'secondary';
   errorMessage?: string;
   disabled?: boolean;
+  autocomplete?: string;
 }
 
-const Input = ({
+function Input ({
   name,
   label,
   onChange,
@@ -23,7 +24,9 @@ const Input = ({
   variant = 'primary',
   errorMessage,
   disabled = false,
-}: InputProps) => {
+  autocomplete
+}: InputProps) {
+  
   const inputClassName = `input ${variant} ${errorMessage ? 'error' : ''} ${
     disabled ? 'disabled' : ''
   }`;
@@ -41,6 +44,7 @@ const Input = ({
         type={type}
         className={inputClassName}
         disabled={disabled}
+        autoComplete={autocomplete}
       />
       {errorMessage && <span className="error-message">{errorMessage}</span>}
     </div>

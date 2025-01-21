@@ -1,3 +1,5 @@
+@use '../../styles/variables' as v;
+
 .button {
     display: inline-flex;
     justify-content: center;
@@ -9,42 +11,28 @@
     transition: all 0.3s ease;
   
     &.primary {
-      background-color: #3498db;
-      color: #fff;
+      background-color: v.$primary;
+      color: v.$white;
       border: none;
   
       &:hover {
-        background-color: #2980b9;
+        background-color: v.$button-hover;
       }
   
       &:active {
-        background-color: #1d6f98;
-      }
-    }
-  
-    &.secondary {
-      background-color: #f1f1f1;
-      color: #333;
-      border: 1px solid #ccc;
-  
-      &:hover {
-        background-color: #e1e1e1;
-      }
-  
-      &:active {
-        background-color: #c1c1c1;
+        background-color: v.$button-hover;
       }
     }
   
     &.disabled {
-      background-color: #d1d1d1;
-      color: #888;
+      background-color: v.$disabled-background;
+      color: v.$disabled-color;
       cursor: not-allowed;
       pointer-events: none;
     }
   
     .loader {
-      border: 2px solid #fff;
+      border: 2px solid v.$white;
       border-top: 2px solid transparent;
       border-radius: 50%;
       width: 20px;

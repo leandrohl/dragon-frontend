@@ -10,14 +10,14 @@ interface ButtonProps {
   loading?: boolean;
 }
 
-const Button = ({
+function Button ({
   onClick,
   children,
   className = '',
   variant = 'primary',
   disabled = false,
   loading = false,
-}: ButtonProps) => {
+}: ButtonProps) {
   const buttonClassName = `button ${variant} ${disabled || loading ? 'disabled' : ''}`;
 
   return (
