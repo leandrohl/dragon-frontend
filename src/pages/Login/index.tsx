@@ -8,10 +8,13 @@ import './styles.scss';
 import Input from '@components/Input';
 import Button from '@components/Button';
 import toast from 'react-hot-toast';
+import { login } from '@redux/userSlice';
+import { useAppDispatch } from '@hooks/useRedux';
 
 type LoginData = z.infer<typeof LoginSchema>;
 
 function Login() {
+  const dispatch = useAppDispatch()
 
   const {
     control,
@@ -20,8 +23,21 @@ function Login() {
   } = useForm(LoginSchema);
 
   const onSubmit = async (data: LoginData) => {
-    console.log(data)
-    toast.success('Login realizado com sucesso');
+    if (data.email === 'teste@gmail.com' && data.password === '123456') {
+      dispatch(
+        login({
+          user: {
+            email: data.email,
+            password: data.password
+          }
+        })
+      );
+      toast.success('Login realizado com sucesso');
+    } else {
+      toast.error('Erro ao realizar login')
+    }
+
+    
   }
 
   return (
