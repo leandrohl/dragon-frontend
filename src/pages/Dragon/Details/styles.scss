@@ -1,0 +1,41 @@
+@use '../../../styles/variables' as v;
+
+.dragon-details {
+  padding: 2rem;
+  background-color: v.$off-white;
+  color: v.$gray;
+  height: 100vh;
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .details-container {
+    background: v.$white;
+    border: 1px solid v.$gray-3;
+    border-radius: 8px;
+    padding: 1.5rem;
+  
+    p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+  
+      strong {
+        font-weight: bold;
+      }
+    }
+  
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+  
+      li {
+        font-size: 0.9rem;
+        margin-TOP: 0.5rem;
+      }
+    }
+  }
+}
+  

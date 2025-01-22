@@ -1,61 +1,60 @@
 @use '../../styles/variables' as v;
 
 .dragons-list {
-    padding: 2rem;
-    background-color: v.$off-white;
-    font-family: Arial, sans-serif;
+  padding: 2rem;
+  background-color: v.$off-white;
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
+    h1 {
+      text-align: center;
+      color: v.$gray;
+      font-size: 1.8rem;
+    }
+  }
 
-      h1 {
-        text-align: center;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dragon-card {
+    background-color: v.$white;
+    border: 1px solid v.$off-white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin: 0 0 0.5rem 0;
+      color: v.$gray;
+    }
+  
+    p {
+      margin: 0.5rem 0;
+      color: v.$gray-2;
+  
+      strong {
         color: v.$gray;
-        font-size: 1.8rem;
       }
     }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
   
-    .dragon-card {
-      background-color: v.$white;
-      border: 1px solid v.$off-white;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .buttons {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-  
-      h2 {
-        margin: 0 0 0.5rem 0;
-        color: v.$gray;
-      }
-  
-      p {
-        margin: 0.5rem 0;
-        color: v.$gray-2;
-  
-        strong {
-            color: v.$gray;
-        }
-      }
-  
-      .buttons {
-        display: flex;
-        gap: 1rem;
+      gap: 1rem;
 
-        button {
-          height: 2.2rem;
-        }
+      button {
+        height: 2.2rem;
       }
     }
   }
+}
   

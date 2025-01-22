@@ -4,9 +4,12 @@ import { Dragon } from '@/types/dragon';
 import toast from 'react-hot-toast';
 import api from '@/services/api';
 import Button from '@components/Button';
+import { useNavigate } from 'react-router-dom';
 
 function DragonsList () {
   const [dragons, setDragons] = useState<Dragon[]>([])
+
+  const navigate = useNavigate();
 
   const handleSearchDragons = async () => {
     try {
@@ -18,14 +21,17 @@ function DragonsList () {
     }
   }
 
-
   useEffect(() => {
     handleSearchDragons()
   }, [])
 
   const handleViewDetails = (id: string) => {
-    alert(`Visualizando detalhes do dragão com ID: ${id}`);
+   navigate(`/dragon/${id}`)
   };
+
+  const handleAddDragon = () => {
+    navigate(`/dragon/add`)
+   };
 
   const handleDeleteDragon = async (id: string) => {
     try {
@@ -42,7 +48,7 @@ function DragonsList () {
       <div className='header'>
         <h1>Lista de Dragões</h1>
         <Button
-          onClick={() => {}}
+          onClick={() => handleAddDragon()}
         >
           Cadastrar Dragão
         </Button>
