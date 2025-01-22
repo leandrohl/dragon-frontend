@@ -29,7 +29,8 @@
       "@helpers/*": ["src/helpers/*"],
       "@styles/*": ["src/styles/*"],
       "@redux/*": ["src/redux/*"],
-      "@/types/*": ["src/@types/*"]
+      "@/types/*": ["src/@types/*"],
+      "@/services/*": ["src/services/*"]
     }
   },
   "include": ["src"]

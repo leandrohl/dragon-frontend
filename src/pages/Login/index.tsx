@@ -10,12 +10,14 @@ import Button from '@components/Button';
 import toast from 'react-hot-toast';
 import { login } from '@redux/userSlice';
 import { useAppDispatch } from '@hooks/useRedux';
+import { useNavigate } from "react-router";
 
 type LoginData = z.infer<typeof LoginSchema>;
 
 function Login() {
   const dispatch = useAppDispatch()
-
+  const navigate = useNavigate();
+  
   const {
     control,
     handleSubmit,
@@ -33,11 +35,11 @@ function Login() {
         })
       );
       toast.success('Login realizado com sucesso');
+
+      navigate("/dragons");
     } else {
       toast.error('Erro ao realizar login')
     }
-
-    
   }
 
   return (
