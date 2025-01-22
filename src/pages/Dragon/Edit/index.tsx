@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles.scss';
 import { DragonSchema } from '@helpers/validations';
 import { z } from 'zod';
@@ -8,33 +8,54 @@ import { Controller, useFieldArray } from 'react-hook-form';
 import Input from '@components/Input';
 import Button from '@components/Button';
 import api from '@/services/api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 type DragonData = z.infer<typeof DragonSchema>;
 
-const AddDragon: React.FC = () => {
+const EditDragon: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
  const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    setValue
   } = useForm(DragonSchema);
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: "histories"
   });
+
+  const handleSearchDragonById = async () => {
+    try {
+      const response = await api.get(`/dragon/${id}`);
+      
+      setValue("name", response.name);
+      setValue("type", response.type);
+      console.log(response.histories)
+      setValue("histories", response.histories.map((h: string) => {
+        return { history: h }
+      }));
+    } catch {
+      toast.error('Erro ao buscar detalhes do dragão')
+    }
+  }
+
+  useEffect(() => {
+    handleSearchDragonById()
+  }, [])
   
   const onSubmit = async (data: DragonData) => {
     try {
-      await api.post(`/dragon`, {
+      await api.put(`/dragon/${id}`, {
         name: data.name,
         type: data.type,
         histories: data.histories.map(h => h.history),
         createdAt: new Date(),
       });
-      toast.success('Dragão adicionado com sucesso')
+      toast.success('Dragão editado com sucesso')
 
       navigate("/dragons")
     } catch {
@@ -43,8 +64,8 @@ const AddDragon: React.FC = () => {
   }
   
   return (
-    <div className="add-dragon">
-      <h1 className="title">Adicionar Dragão</h1>
+    <div className="edit-dragon">
+      <h1 className="title">Editar Dragão</h1>
       <div className="form">
         <div className="form-group">
           <Controller
@@ -89,7 +110,7 @@ const AddDragon: React.FC = () => {
                 name={`histories.${index}.history`}
                 render={({ field: { value, onChange } }) => (
                   <Input
-                    name={`histories.${index}`}
+                    name={`histories.${index}.history`}
                     onChange={onChange}
                     value={value || ""}
                     label={`História ${index + 1}`}
@@ -116,11 +137,11 @@ const AddDragon: React.FC = () => {
           onClick={handleSubmit(onSubmit)} 
           fullWidth
         >
-          Adicionar Dragão
+          Editar Dragão
         </Button>
       </div>
     </div>
   );
 };
 
-export default AddDragon;
+export default EditDragon;

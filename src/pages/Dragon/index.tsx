@@ -33,6 +33,10 @@ function DragonsList () {
     navigate(`/dragon/add`)
    };
 
+   const handleEditDragon = (id: string) => {
+    navigate(`/dragon/edit/${id}`)
+   };
+
   const handleDeleteDragon = async (id: string) => {
     try {
       await api.delete(`/dragon/${id}`);
@@ -67,7 +71,7 @@ function DragonsList () {
                 Visualizar
               </Button>
               <Button
-                onClick={() => handleViewDetails(dragon.id)}
+                onClick={() => handleEditDragon(dragon.id)}
               >
                 Alterar
               </Button>

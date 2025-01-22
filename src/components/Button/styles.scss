@@ -30,6 +30,10 @@
       cursor: not-allowed;
       pointer-events: none;
     }
+
+    &.fullWidth {
+      width: 100%;
+    }
   
     .loader {
       border: 2px solid v.$white;

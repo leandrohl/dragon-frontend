@@ -12,11 +12,8 @@ export const LoginSchema = z.object({
 export const DragonSchema = z.object({
   name: z
   .string({ message: "Campo obrigatório" }),
-  createdAt: z
-  .date({ required_error: "Campo obrigatório" }),
   type: z
   .string({ message: "Campo obrigatório" }),
   histories: z
-  .string()
-  .array(),
+  .array(z.object({ history: z.string()}))
 })

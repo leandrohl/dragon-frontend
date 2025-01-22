@@ -8,6 +8,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   disabled?: boolean;
   loading?: boolean;
+  fullWidth?: boolean;
 }
 
 function Button ({
@@ -15,10 +16,11 @@ function Button ({
   children,
   className = '',
   variant = 'primary',
+  fullWidth = false,
   disabled = false,
   loading = false,
 }: ButtonProps) {
-  const buttonClassName = `button ${variant} ${disabled || loading ? 'disabled' : ''}`;
+  const buttonClassName = `button ${variant} ${disabled || loading ? 'disabled' : ''} ${fullWidth && 'fullWidth'}`;
 
   return (
     <button
