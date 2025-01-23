@@ -1,9 +1,9 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import './styles.scss';
 
 interface ButtonProps {
   onClick: () => void;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   variant?: 'primary' | 'secondary';
   disabled?: boolean;

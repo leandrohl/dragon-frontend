@@ -2,19 +2,6 @@
 
 const baseUrl = "http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1";
 
-const handleUnauthorized = (response: Response) => {
-  if (response.url.includes("/auth/login")) return false;
-
-  if (response.status === 401) {
-      window.location.href = '/login';
-      localStorage.removeItem('user');
-      localStorage.removeItem('token');
-      return true;
-  }
-  return false;
-};
-
-
 const api = {
     get: async (endpoint: string) => {
       const response = await fetch(baseUrl + endpoint, {
@@ -39,9 +26,7 @@ const api = {
             },
             body: JSON.stringify(body)
         })
-
-        if (handleUnauthorized(response)) return;
-
+        
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
         }

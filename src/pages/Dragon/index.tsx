@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.scss';
 import { Dragon } from '@/types/dragon';
 import toast from 'react-hot-toast';
-import api from '@/services/api';
+import api from '@services/api';
 import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
 

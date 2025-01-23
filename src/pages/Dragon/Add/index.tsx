@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles.scss';
 import { DragonSchema } from '@helpers/validations';
 import { z } from 'zod';
@@ -7,12 +6,12 @@ import toast from 'react-hot-toast';
 import { Controller, useFieldArray } from 'react-hook-form';
 import Input from '@components/Input';
 import Button from '@components/Button';
-import api from '@/services/api';
+import api from '@services/api';
 import { useNavigate } from 'react-router-dom';
 
 type DragonData = z.infer<typeof DragonSchema>;
 
-const AddDragon: React.FC = () => {
+function AddDragon () {
   const navigate = useNavigate();
 
  const {

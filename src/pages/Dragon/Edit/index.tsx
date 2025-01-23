@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './styles.scss';
 import { DragonSchema } from '@helpers/validations';
 import { z } from 'zod';
@@ -7,12 +7,12 @@ import toast from 'react-hot-toast';
 import { Controller, useFieldArray } from 'react-hook-form';
 import Input from '@components/Input';
 import Button from '@components/Button';
-import api from '@/services/api';
+import api from '@services/api';
 import { useNavigate, useParams } from 'react-router-dom';
 
 type DragonData = z.infer<typeof DragonSchema>;
 
-const EditDragon: React.FC = () => {
+function EditDragon() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
