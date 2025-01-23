@@ -9,6 +9,7 @@ interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   fullWidth?: boolean;
+  testid?: string;
 }
 
 function Button ({
@@ -19,6 +20,7 @@ function Button ({
   fullWidth = false,
   disabled = false,
   loading = false,
+  testid
 }: ButtonProps) {
   const buttonClassName = `button ${variant} ${disabled || loading ? 'disabled' : ''} ${fullWidth && 'fullWidth'}`;
 
@@ -27,6 +29,7 @@ function Button ({
       onClick={onClick}
       className={`${buttonClassName} ${className}`}
       disabled={disabled || loading}
+      data-testid={testid}
     >
       {loading ? <span className="loader"></span> : children}
     </button>

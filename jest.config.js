@@ -16,7 +16,7 @@ export default {
     },
     setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
     testPathIgnorePatterns: ["/node_modules/", "/__tests__/__mocks__/"],
-    collectCoverage: false,
+    collectCoverage: true,
     collectCoverageFrom: [
         "src/**/*.{ts,tsx}",
         "!src/**/*.d.ts"

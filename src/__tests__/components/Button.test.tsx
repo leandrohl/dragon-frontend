@@ -2,12 +2,12 @@ import { render, screen } from '../../helpers/test-utils';
 import Button from '../../components/Button';
 
 describe('Button', () => {
-  it('renders children correctly', () => {
+  test('renders children correctly', () => {
     render(<Button onClick={() => {}}>Click Me</Button>);
     expect(screen.getByText('Click Me')).toBeInTheDocument();
   });
 
-  it('disables the button when disabled is true', () => {
+  test('disables the button when disabled is true', () => {
     render(
       <Button onClick={() => {}} disabled>
         Click Me
@@ -17,7 +17,7 @@ describe('Button', () => {
     expect(button).toBeDisabled();
   });
 
-  it('applies the fullWidth class when fullWidth is true', () => {
+  test('applies the fullWidth class when fullWidth is true', () => {
     render(
       <Button onClick={() => {}} fullWidth>
         Click Me

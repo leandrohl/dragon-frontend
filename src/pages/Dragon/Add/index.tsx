@@ -56,8 +56,9 @@ function AddDragon () {
                 type="text"
                 variant='primary'
                 value={value}
-                 onChange={onChange}
+                onChange={onChange}
                 errorMessage={errors.name?.message}
+                testId='name-input'
               />
             )}
           />
@@ -75,6 +76,7 @@ function AddDragon () {
                 value={value}
                 onChange={onChange}
                 errorMessage={errors.type?.message}
+                testId='type-input'
               />
             )}
           />
@@ -93,6 +95,7 @@ function AddDragon () {
                     value={value || ""}
                     label={`História ${index + 1}`}
                     errorMessage={errors.histories?.[index]?.message}
+                    testId={`history-input-${index}`}
                   />
                 )}
               />
@@ -107,12 +110,14 @@ function AddDragon () {
             onClick={() => append({ history: "" })}
             fullWidth
             className='add-history'
+            testid='add-history'
           >
             Adicionar História
           </Button>
         </div>
         <Button 
           onClick={handleSubmit(onSubmit)} 
+          testid='submit-button'
           fullWidth
         >
           Adicionar Dragão

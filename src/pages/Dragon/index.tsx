@@ -41,7 +41,7 @@ function DragonsList () {
     try {
       await api.delete(`/dragon/${id}`);
       setDragons(dragons.filter(dragon => dragon.id !== id));
-      toast.success('Dragão excluido com sucesso')
+      toast.success('Dragão excluído com sucesso')
     } catch {
       toast.error('Houve um erro ao excluir o dragão. Por favor, tente novamente!')
     }
@@ -53,8 +53,9 @@ function DragonsList () {
         <h1>Lista de Dragões</h1>
         <Button
           onClick={() => handleAddDragon()}
+          testid='add-dragon'
         >
-          Cadastrar Dragão
+          Adicionar Dragão
         </Button>
       </div>
       <ul>
@@ -67,16 +68,19 @@ function DragonsList () {
             <div className="buttons">
               <Button
                 onClick={() => handleViewDetails(dragon.id)}
+                testid={`view-dragon-${dragon.id}`}
               >
                 Visualizar
               </Button>
               <Button
                 onClick={() => handleEditDragon(dragon.id)}
+                testid={`edit-dragon-${dragon.id}`}
               >
                 Alterar
               </Button>
               <Button
                 onClick={() => handleDeleteDragon(dragon.id)}
+                testid={`delete-dragon-${dragon.id}`}
               >
                 Excluir 
               </Button>

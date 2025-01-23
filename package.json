@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "jest",
-    "test:cli": "jest --coverage"
+    "test:cli": "jest --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -44,6 +45,7 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "husky": "^8.0.0"
   }
 }

@@ -55,8 +55,9 @@ function Login() {
                 type="text"
                 variant='primary'
                 value={value}
-                 onChange={onChange}
+                onChange={onChange}
                 errorMessage={errors.email?.message}
+                testId='email-input'
               />
             )}
           />
@@ -75,7 +76,7 @@ function Login() {
                 onChange={onChange}
                 errorMessage={errors.password?.message}
                 autocomplete="current-password"
-                // disabled={loading}
+                testId='password-input'
               />
             )}
           />
@@ -84,6 +85,7 @@ function Login() {
           <Button
             onClick={handleSubmit(onSubmit)}
             variant='primary'
+            testid='submit-button'
           >
             Entrar
           </Button>
