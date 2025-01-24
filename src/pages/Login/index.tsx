@@ -8,7 +8,7 @@ import Button from '@components/Button';
 import toast from 'react-hot-toast';
 import { login } from '@redux/userSlice';
 import { useAppDispatch } from '@hooks/useRedux';
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 type LoginData = z.infer<typeof LoginSchema>;
 
