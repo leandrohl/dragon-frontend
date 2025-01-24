@@ -8,10 +8,12 @@ import Input from '@components/Input';
 import Button from '@components/Button';
 import api from '@services/api';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 type DragonData = z.infer<typeof DragonSchema>;
 
 function AddDragon () {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
  const {
@@ -26,6 +28,7 @@ function AddDragon () {
   });
   
   const onSubmit = async (data: DragonData) => {
+    setLoading(true);
     try {
       await api.post(`/dragon`, {
         name: data.name,
@@ -38,6 +41,8 @@ function AddDragon () {
       navigate("/dragons")
     } catch {
       toast.error('Houve um erro ao adicionar o dragão. Por favor, tente novamente!')
+    } finally {
+      setLoading(false);
     }
   }
   
@@ -119,6 +124,7 @@ function AddDragon () {
           onClick={handleSubmit(onSubmit)} 
           testid='submit-button'
           fullWidth
+          loading={loading}
         >
           Adicionar Dragão
         </Button>

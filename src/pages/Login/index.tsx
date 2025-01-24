@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 
 type LoginData = z.infer<typeof LoginSchema>;
 
-function Login() {
+function Login() {  
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
   
@@ -23,19 +23,28 @@ function Login() {
   } = useForm(LoginSchema);
 
   const onSubmit = async (data: LoginData) => {
-    if (data.email === 'teste@gmail.com' && data.password === '123456') {
-      dispatch(
-        login({
-          user: {
-            email: data.email,
-            password: data.password
-          }
-        })
-      );
-      toast.success('Login realizado com sucesso');
-
-      navigate("/dragons");
-    } else {
+    try {
+      const TEST_EMAIL = 'teste@gmail.com';
+      const TEST_PASSWORD = '123456';
+  
+      const isTestUser = data.email === TEST_EMAIL && data.password === TEST_PASSWORD;
+  
+      if (isTestUser) {
+        dispatch(
+          login({
+            user: {
+              email: data.email,
+              password: data.password
+            }
+          })
+        );
+        toast.success('Login realizado com sucesso');
+  
+        navigate("/dragons");
+      } else {
+        toast.error('Credenciais inválidas. Verifique seu email e senha.')
+      }
+    } catch {
       toast.error('Erro ao realizar login')
     }
   }

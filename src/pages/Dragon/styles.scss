@@ -3,6 +3,11 @@
 .dragons-list {
   padding: 2rem;
   background-color: v.$off-white;
+  min-height: 100vh;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
   
   .header-list {
     display: flex;
@@ -16,9 +21,13 @@
     }
 
     h1 {
-      text-align: center;
+      text-align: start;
       color: v.$gray;
       font-size: 1.8rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
     }
   }
 

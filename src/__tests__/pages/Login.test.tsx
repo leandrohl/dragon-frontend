@@ -41,6 +41,6 @@ describe('Login', () => {
     const submitButton = screen.getByTestId("submit-button");
     fireEvent.click(submitButton);
 
-    await waitFor(() => expect(toastSpy).toHaveBeenCalledWith('Erro ao realizar login'));
+    await waitFor(() => expect(toastSpy).toHaveBeenCalledWith('Credenciais inválidas. Verifique seu email e senha.'));
   });
 })

@@ -4,7 +4,11 @@
   padding: 2rem;
   background-color: v.$off-white;
   color: v.$gray;
-  height: 100vh;
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
   
   .title {
     font-size: 2rem;

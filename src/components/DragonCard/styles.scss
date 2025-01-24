@@ -10,6 +10,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: start;
+    }
   
     h2 {
       margin: 0 0 0.5rem 0;
@@ -31,6 +36,12 @@
   
       button {
         height: 2.2rem;
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
       }
     }
   }

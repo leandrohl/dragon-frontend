@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.scss';
 import { DragonSchema } from '@helpers/validations';
 import { z } from 'zod';
@@ -14,6 +14,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 type DragonData = z.infer<typeof DragonSchema>;
 
 function EditDragon() {
+  const [loading, setLoading] = useState(false);
+
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -49,6 +51,7 @@ function EditDragon() {
   }, [])
   
   const onSubmit = async (data: DragonData) => {
+    setLoading(true);
     try {
       await api.put(`/dragon/${id}`, {
         name: data.name,
@@ -60,6 +63,8 @@ function EditDragon() {
       navigate("/dragons")
     } catch {
       toast.error('Houve um erro ao adicionar o dragão. Por favor, tente novamente!')
+    } finally {
+      setLoading(false);
     }
   }
   
@@ -141,6 +146,7 @@ function EditDragon() {
           onClick={handleSubmit(onSubmit)} 
           testid='submit-button'
           fullWidth
+          loading={loading}
         >
           Editar Dragão
         </Button>

@@ -6,6 +6,7 @@
   align-items: center;
   min-height: 100vh;
   background-color: v.$off-white;
+  padding: 0;
 
   .login-form {
     background: v.$white;
@@ -25,6 +26,14 @@
     .button-container {
       display: flex;
       justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+
+    .login-form {
+      padding: 1rem;
     }
   }
 }
