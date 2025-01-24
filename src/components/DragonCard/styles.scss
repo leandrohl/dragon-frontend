@@ -1,0 +1,37 @@
+@use '../../styles/variables' as v;
+
+.dragon-card {
+    background-color: v.$white;
+    border: 1px solid v.$off-white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px v.$shadow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    h2 {
+      margin: 0 0 0.5rem 0;
+      color: v.$gray;
+    }
+  
+    p {
+      margin: 0.5rem 0;
+      color: v.$gray-2;
+  
+      strong {
+        color: v.$gray;
+      }
+    }
+  
+    .buttons {
+      display: flex;
+      gap: 1rem;
+  
+      button {
+        height: 2.2rem;
+      }
+    }
+  }
+  

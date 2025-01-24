@@ -5,25 +5,32 @@ import { Dragon } from '@/types/dragon';
 import toast from 'react-hot-toast';
 import api from '@services/api';
 import { useParams } from 'react-router-dom';
+import Loading from '@components/Loading';
 
 function DragonDetails () {
   const [dragon, setDragon] = useState<Dragon | null>(null)
+  const [loading, setLoading] = useState(false);
 
   const { id } = useParams<{ id: string }>();
 
   const handleSearchDragonById = async () => {
+    setLoading(true);
     try {
       const response = await api.get(`/dragon/${id}`);
       
       setDragon(response);
     } catch {
       toast.error('Erro ao buscar detalhes do dragão')
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     handleSearchDragonById()
   }, [])
+  
+  if (loading) return <Loading />
 
   if (!dragon) {
     return <div className="dragon-details">Dragão não encontrado.</div>;

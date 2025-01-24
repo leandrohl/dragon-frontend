@@ -54,7 +54,6 @@ function EditDragon() {
         name: data.name,
         type: data.type,
         histories: data.histories.map(h => h.history),
-        createdAt: new Date(),
       });
       toast.success('Dragão editado com sucesso')
 

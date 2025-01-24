@@ -5,19 +5,25 @@ import toast from 'react-hot-toast';
 import api from '@services/api';
 import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
+import Loading from '@components/Loading';
+import DragonCard from '@components/DragonCard';
 
 function DragonsList () {
   const [dragons, setDragons] = useState<Dragon[]>([])
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSearchDragons = async () => {
+    setLoading(true);
     try {
       const response = await api.get('/dragon');
       
       setDragons(response.sort((a: Dragon, b: Dragon) => a.name.localeCompare(b.name)));
     } catch {
       toast.error('Erro ao buscar dragões')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -47,45 +53,30 @@ function DragonsList () {
     }
   };
 
+  if (loading) return <Loading />
+
   return (
     <div className="dragons-list">
       <div className='header'>
         <h1>Lista de Dragões</h1>
-        <Button
-          onClick={() => handleAddDragon()}
-          testid='add-dragon'
-        >
-          Adicionar Dragão
-        </Button>
+        <div className='header-right'>
+          <Button
+            onClick={() => handleAddDragon()}
+            testid='add-dragon'
+          >
+            Adicionar Dragão
+          </Button>
+        </div>
       </div>
       <ul>
         {dragons.map((dragon) => (
-          <li key={dragon.id} className="dragon-card">
-            <div>
-              <h2>{dragon.name}</h2>
-              <p><strong>Tipo:</strong> {dragon.type}</p>
-            </div>
-            <div className="buttons">
-              <Button
-                onClick={() => handleViewDetails(dragon.id)}
-                testid={`view-dragon-${dragon.id}`}
-              >
-                Visualizar
-              </Button>
-              <Button
-                onClick={() => handleEditDragon(dragon.id)}
-                testid={`edit-dragon-${dragon.id}`}
-              >
-                Alterar
-              </Button>
-              <Button
-                onClick={() => handleDeleteDragon(dragon.id)}
-                testid={`delete-dragon-${dragon.id}`}
-              >
-                Excluir 
-              </Button>
-            </div>
-          </li>
+          <DragonCard
+            key={dragon.id}
+            dragon={dragon}
+            onViewDetails={handleViewDetails}
+            onEdit={handleEditDragon}
+            onDelete={handleDeleteDragon}
+          />
         ))}
       </ul>
     </div>

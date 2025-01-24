@@ -3,16 +3,16 @@ import React, { ReactElement } from 'react'
 
 import {render, RenderOptions} from '@testing-library/react'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom';
 import { store } from '@redux/store';
+import { MemoryRouter } from 'react-router-dom';
 
 const AllTheProviders = ({children}: {children: React.ReactNode}) => {
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Provider store={store}>
         {children}
       </Provider>
-    </BrowserRouter>
+    </MemoryRouter>
   )
 }
 
