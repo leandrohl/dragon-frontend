@@ -23,16 +23,10 @@ const userSlice = createSlice({
       state.user = user;
       state.isAuthenticated = true;
     },
-    logout: (state) => {
-      localStorage.removeItem("user");
-
-      state.user = null;
-      state.isAuthenticated = false;
-    },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login } = userSlice.actions;
 export default userSlice.reducer
 
 
