@@ -37,7 +37,6 @@ function EditDragon() {
       
       setValue("name", response.name);
       setValue("type", response.type);
-      console.log(response.histories)
       setValue("histories", response.histories.map((h: string) => {
         return { history: h }
       }));
