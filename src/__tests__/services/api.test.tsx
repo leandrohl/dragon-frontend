@@ -17,7 +17,7 @@ describe("API", () => {
 
     const result = await api.get("/dragons");
 
-    expect(fetch).toHaveBeenCalledWith("http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons", {
+    expect(fetch).toHaveBeenCalledWith("https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons", {
       headers: { "Content-Type": "application/json" },
     });
     expect(result).toEqual(mockData);
@@ -41,7 +41,7 @@ describe("API", () => {
 
     const result = await api.post("/dragons", { name: "New Dragon" });
 
-    expect(fetch).toHaveBeenCalledWith("http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons", {
+    expect(fetch).toHaveBeenCalledWith("https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: "New Dragon" }),
@@ -67,7 +67,7 @@ describe("API", () => {
 
     const result = await api.put("/dragons/1", { name: "Updated Dragon" });
 
-    expect(fetch).toHaveBeenCalledWith("http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons/1", {
+    expect(fetch).toHaveBeenCalledWith("https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons/1", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: "Updated Dragon" }),
@@ -93,7 +93,7 @@ describe("API", () => {
 
     const result = await api.delete("/dragons/1");
 
-    expect(fetch).toHaveBeenCalledWith("http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons/1", {
+    expect(fetch).toHaveBeenCalledWith("https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragons/1", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const baseUrl = "http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1";
+const baseUrl = "https://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1";
 
 const api = {
     get: async (endpoint: string) => {
