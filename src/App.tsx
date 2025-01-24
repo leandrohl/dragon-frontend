@@ -1,16 +1,29 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Login from './pages/Login';
 import DragonsList from '@pages/Dragon';
-import { useAppSelector } from '@hooks/useRedux';
+import { useAppDispatch, useAppSelector } from '@hooks/useRedux';
 import DragonDetails from '@pages/Dragon/Details';
 import AddDragon from '@pages/Dragon/Add';
 import EditDragon from '@pages/Dragon/Edit';
+import Header from './components/Header';
+import { logout } from '@redux/userSlice';
 
 function App() {
-  const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated)
+  const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated);
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout())
+  }
 
   const ProtectedRoute = () => {
-    return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
+    return isAuthenticated ? (
+      <>
+        <Header onLogout={handleLogout}/>
+        <Outlet /> 
+      </>
+    ): 
+    <Navigate to="/login" replace />;
   };
 
   return (

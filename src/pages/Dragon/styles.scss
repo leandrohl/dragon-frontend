@@ -8,32 +8,21 @@
   @media (max-width: 768px) {
     padding: 1rem;
   }
-  
-  .header-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    .header-right {
-      display: flex;
-      gap: 1rem;
-    }
-
-    h1 {
-      text-align: start;
-      color: v.$gray;
-      font-size: 1.8rem;
-
-      @media (max-width: 768px) {
-        font-size: 1.3rem;
-      }
-    }
-  }
 
   ul {
     list-style: none;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr; 
+    }
   }
 }
   

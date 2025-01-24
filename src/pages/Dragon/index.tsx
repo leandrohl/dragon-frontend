@@ -3,7 +3,6 @@ import './styles.scss';
 import { Dragon } from '@/types/dragon';
 import toast from 'react-hot-toast';
 import api from '@services/api';
-import Button from '@components/Button';
 import { useNavigate } from 'react-router-dom';
 import Loading from '@components/Loading';
 import DragonCard from '@components/DragonCard';
@@ -35,10 +34,6 @@ function DragonsList () {
    navigate(`/dragon/${id}`)
   };
 
-  const handleAddDragon = () => {
-    navigate(`/dragon/add`)
-   };
-
    const handleEditDragon = (id: string) => {
     navigate(`/dragon/edit/${id}`)
    };
@@ -57,17 +52,6 @@ function DragonsList () {
 
   return (
     <div className="dragons-list">
-      <div className='header-list'>
-        <h1>Lista de Dragões</h1>
-        <div className='header-right'>
-          <Button
-            onClick={() => handleAddDragon()}
-            testid='add-dragon'
-          >
-            Adicionar Dragão
-          </Button>
-        </div>
-      </div>
       <ul>
         {dragons.map((dragon) => (
           <DragonCard

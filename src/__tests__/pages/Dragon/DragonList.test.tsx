@@ -24,8 +24,6 @@ describe('DragonList', () => {
 
   test('should render correctly', async () => {
     render(<DragonList />);
-    
-    expect(await screen.findByText("Lista de Dragões")).toBeInTheDocument();
   });
 
   test('should render name dragons', async () => {
@@ -34,15 +32,6 @@ describe('DragonList', () => {
     expect(await screen.findByText("Smaug")).toBeInTheDocument();
     expect(await screen.findByText("Draco")).toBeInTheDocument();
     expect(await screen.findByText("Alduin")).toBeInTheDocument();
-  });
-
-  test('should navigate to add dragon when click in Adicionar Dragão', async () => {
-    render(<DragonList />);
-
-    const button = await screen.findByTestId("add-dragon");
-    fireEvent.click(button);
-
-    expect(mockNavigate).toHaveBeenCalledWith("/dragon/add");
   });
 
   test('should navigate to view details when click in Vizualizar', async () => {
