@@ -57,7 +57,7 @@ function DragonsList () {
 
   return (
     <div className="dragons-list">
-      <div className='header'>
+      <div className='header-list'>
         <h1>Lista de Dragões</h1>
         <div className='header-right'>
           <Button

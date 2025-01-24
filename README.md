@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+<h1 align="center">
+  Desafio Técnico - NT Consult
+<br />  
+</h1>
+ <p align="center"> <strong> Objetivo: Implementar o layout de uma página responsiva utilizando React, Sass , conforme as especificações fornecidas. </strong> </p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  :notebook_with_decorative_cover: Instruções
+```git clone https://github.com/leandrohl/dragon-frontend.git ``` : para clonar o repositório do projeto
+<br />
+```npm install ``` : para a instalação das dependências
+<br />
+```npm run dev ``` : executar a aplicação frontend
+<br />
+```npm run test ``` : executar testes unitários
 
-Currently, two official plugins are available:
+##  :computer: Tecnologias utilizadas
+- **React Js** — Biblioteca JavaScript para criação de interfaces de usuário dinâmicas.
+- **Vite** — Ferramenta de desenvolvimento frontend ultrarrápida baseada em JavaScript e TypeScript.
+- **Typesript** — Extensão do JavaScript com tipos estáticos opcionais para detecção precoce de erros.
+- **Sass** — Linguagem de folha de estilo CSS com recursos avançados como variáveis e aninhamento.
+- **Jest e Testing Library** — Framework e coleção de ferramentas para testes unitários focados no comportamento do usuário final.
+- **Husky** — Ferramenta para configurar ganchos de Git para automatizar tarefas de pré-commit e pré-push.
+- **ESLint** - Ferramenta que ajuda a identificar e corrigir problemas de estilo e erros no código, promovendo boas práticas de codificação.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## :rocket: Projeto
+<!-- <img src="./src/assets/images/web.gif" alt="PROJETO" width="100%"> -->
 
-## Expanding the ESLint configuration
+## :bar_chart: Testes unitários
+<!-- <img src="./src/assets/images/coverage.png" alt="COVERAGE DO PROJETO" width="100%">
+<img src="./src/assets/images/testes-unitarios.png" alt="TESTES UNITÁRIOS" width="100%"> -->
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## :notebook: Requisitos para avaliação:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Página de Login;
+Exibir dragões em ordem alfabética;
+Página de Cadastro de Dragões;
+Autenticação e Gerenciamento de Sessão;
+Redirecionar para a página de login se não estiver autenticado;
+Testes Unitários.

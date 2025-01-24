@@ -36,6 +36,7 @@ const DragonCard: React.FC<DragonCardProps> = ({ dragon, onViewDetails, onEdit, 
         <Button
           onClick={() => onDelete(dragon.id)}
           testid={`delete-dragon-${dragon.id}`}
+          variant='secondary'
         >
           Excluir
         </Button>

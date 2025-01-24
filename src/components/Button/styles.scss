@@ -23,6 +23,20 @@
         background-color: v.$primary-hover;
       }
     }
+
+    &.secondary {
+      background-color: v.$error;
+      color: v.$white;
+      border: none;
+  
+      &:hover {
+        background-color: v.$button-hover;
+      }
+  
+      &:active {
+        background-color: v.$button-hover;
+      }
+    }
   
     &.disabled {
       background-color: v.$disabled-background;
