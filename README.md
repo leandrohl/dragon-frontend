@@ -1,5 +1,5 @@
 <h1 align="center">
-  Desafio Técnico - NT Consult
+  Sobre o projeto
 <br />  
 </h1>
  <p align="center"> <strong> Objetivo: Implementar o layout de uma página responsiva utilizando React, Sass, conforme as especificações fornecidas. </strong> </p>
@@ -35,7 +35,7 @@
 <img src="./src/assets/images/testes-unitarios.png" alt="TESTES UNITÁRIOS" width="100%">
 
 
-## :notebook: Requisitos para avaliação:
+## :notebook: Requisitos:
 
 - Página de Login;
 - Exibir dragões em ordem alfabética;
