@@ -2,7 +2,7 @@
   Sobre o projeto
 <br />  
 </h1>
- <p align="center"> <strong> Objetivo: Implementar o layout de uma página responsiva utilizando React, Sass, conforme as especificações fornecidas. </strong> </p>
+ <p align="center"> <strong> Objetivo: Implementar o layout de uma página responsiva utilizando React.js, Typescript, Sass e outros. </strong> </p>
 
 ##  :notebook_with_decorative_cover: Instruções
 ```git clone https://github.com/leandrohl/dragon-frontend.git ``` : para clonar o repositório do projeto
